@@ -2,7 +2,7 @@
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-def get_max_calories(elf_calories_file):
+def get_max_calories():
     list_of_calories = []
     total_calories = 0
     max_cal = 0
@@ -30,7 +30,7 @@ def get_top_three(calorie_list):
 
 
 with open("calories.txt") as elf_calories:
-    list_of_calories = get_max_calories(elf_calories)
+    list_of_calories = get_max_calories()
     get_top_three(list_of_calories)
 
 # Press the green button in the gutter to run the script.
