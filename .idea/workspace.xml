@@ -4,16 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="feat: complete advent day 2&#10;&#10;Use graph theory in order to simulate the logic of a game of rock-paper-scissors.">
-      <change afterPath="$PROJECT_DIR$/3 December/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/.idea/2022 Advent of Code.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/Assignment Description.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3 December/main.py" afterDir="false" />
+    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="feat: complete advent day 3&#10;&#10;Use of hashmaps in order to find discrepancies in strings.">
+      <change afterPath="$PROJECT_DIR$/4 December/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/.idea/2022 Advent of Code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/Assignment Description.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4 December/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/.idea/2022 Advent of Code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/Assignment Description.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5 December/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/.idea/2022 Advent of Code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/Assignment Description.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6 December/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +61,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/Trym/Desktop/Programming/2022 Advent of Code/3 December",
+    "last_opened_file_path": "/Users/Trym/Desktop/Programming/2022 Advent of Code/6 December",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -53,11 +71,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/6 December" />
+      <recent name="$PROJECT_DIR$/5 December" />
+      <recent name="$PROJECT_DIR$/4 December" />
       <recent name="$PROJECT_DIR$/3 December" />
       <recent name="$PROJECT_DIR$/2 December" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (3)">
+  <component name="RunManager" selected="Python.main (4)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="2022 Advent of Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,6 +145,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main (4)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="2022 Advent of Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/4 December" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/4 December/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="2022 Advent of Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -148,6 +191,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (4)" />
         <item itemvalue="Python.main (3)" />
         <item itemvalue="Python.main (2)" />
         <item itemvalue="Python.main (1)" />
@@ -166,7 +210,7 @@
       <workItem from="1669888799311" duration="3425000" />
       <workItem from="1669973451969" duration="5278000" />
       <workItem from="1670065406814" duration="43000" />
-      <workItem from="1670065459783" duration="4241000" />
+      <workItem from="1670065459783" duration="7505000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add logic for first exercise">
       <created>1669890417835</created>
@@ -196,7 +240,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669982705285</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: complete advent day 3&#10;&#10;Use of hashmaps in order to find discrepancies in strings.">
+      <created>1670083563535</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670083563535</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: complete advent day 3&#10;&#10;Use of hashmaps in order to find discrepancies in strings.">
+      <created>1670083603350</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670083603350</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,11 +277,13 @@
     <MESSAGE value="refactor: remove unnecessary variables" />
     <MESSAGE value="docs: add assignment description" />
     <MESSAGE value="feat: complete advent day 2&#10;&#10;Use graph theory in order to simulate the logic of a game of rock-paper-scissors." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: complete advent day 2&#10;&#10;Use graph theory in order to simulate the logic of a game of rock-paper-scissors." />
+    <MESSAGE value="feat: complete advent day 3&#10;&#10;Use of hashmaps in order to find discrepancies in strings." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: complete advent day 3&#10;&#10;Use of hashmaps in order to find discrepancies in strings." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__4_.coverage" NAME="main (4) Coverage Results" MODIFIED="1670186554138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/4 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1669982613570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/2 December" />
-    <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1670083474979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/3 December" />
+    <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1670083594142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/3 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1669890470776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1 December" />
   </component>
 </project>
