@@ -33,11 +33,11 @@ def find_visible_trees():
 
 
 def row_valid(row):
-    return 0 <= row <= len(forest_grid)
+    return 0 <= row < len(forest_grid)
 
 
 def column_valid(column):
-    return 0 <= column <= len(forest_grid[0])
+    return 0 <= column < len(forest_grid[0])
 
 
 def tree_taller(treeA, treeB):
