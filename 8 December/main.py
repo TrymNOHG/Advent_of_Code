@@ -12,7 +12,7 @@ class Tree:
         return "(" + str(self.height) + ", " + str(self.visible) + ")"
 
 
-forest_grid = [[Tree(int(number)) for number in line.strip("\n")] for line in open("test.txt").readlines()]
+forest_grid = [[Tree(int(number)) for number in line.strip("\n")] for line in open("input.txt").readlines()]
 
 for column in range(len(forest_grid[0])):
     forest_grid[0][column].visible = True
@@ -40,31 +40,98 @@ def column_valid(column):
     return 0 <= column < len(forest_grid[0])
 
 
+def valid_index(row, column):
+    return row_valid(row) and column_valid(column)
+
+
 def tree_taller(treeA, treeB):
     return treeA.height > treeB.height
 
 
-def is_Tree_Visible(row, column):
-    global visible_trees
-    if forest_grid[row][column].visible is True:
+def check_vertical_treeline(row, column):
+    current_tree = forest_grid[row][column]
+    max_height = 0
+    for i in range(row):
+        if forest_grid[i][column].height > forest_grid[max_height][column].height:
+            max_height = i
+
+    if tree_taller(current_tree, forest_grid[max_height][column]):
+        current_tree.visible = True
         return
-    for i in range(3):
-        for neighbor_row in range(3):
-            for neighbor_column in range(3):
-                if row_valid(row + neighbor_row - 1) and column_valid(column + neighbor_column - 1):
-                    if tree_taller(forest_grid[row - 2 - neighbor_row][column + neighbor_column - 1],
-                                   forest_grid[row][column]) and \
-                            forest_grid[row - 2 - neighbor_row][column + neighbor_column - 1].visible is True:
-                        forest_grid[row][column].visible = True
-                        visible_trees += 1
-                        if row_valid(row + (neighbor_row - 1) * - 1) and \
-                                column_valid(column + (neighbor_column - 1) * - 1):
-                            is_Tree_Visible(row + (neighbor_row - 1) * - 1, column + (neighbor_column - 1) * - 1)
-                        continue
+
+    max_height = row + 1
+
+    for i in range(row + 1, len(forest_grid)):
+        if forest_grid[i][column].height > forest_grid[max_height][column].height:
+            max_height = i
+
+    if tree_taller(current_tree, forest_grid[max_height][column]):
+        current_tree.visible = True
+        return
+
     return
 
 
+def check_horizontal_treeline(row, column):
+    current_tree = forest_grid[row][column]
+    max_height = 0
+    for i in range(column):
+        if forest_grid[row][i].height > forest_grid[row][max_height].height:
+            max_height = i
+
+    if tree_taller(current_tree, forest_grid[row][max_height]):
+        current_tree.visible = True
+        return
+
+    max_height = column + 1
+    for i in range(column + 1, len(forest_grid[0])):
+        if forest_grid[row][i].height > forest_grid[row][max_height].height:
+            max_height = i
+
+    if tree_taller(current_tree, forest_grid[row][max_height]):
+        current_tree.visible = True
+        return
+
+    return
+
+
+def is_Tree_Visible(row, column):
+    global visible_trees
+
+    check_vertical_treeline(row, column)
+    check_horizontal_treeline(row, column)
+
+    if forest_grid[row][column].visible:
+        visible_trees += 1
+
+    return
+
+
+def is_Tree_Visible_diagonally(row, column):
+    current_tree = forest_grid[row][column]
+    global visible_trees
+    if current_tree.visible is True:
+        return
+    for neighbor_row in range(-1, 2):
+        for neighbor_column in range(-1, 2):
+            if valid_index(row + neighbor_row, column + neighbor_column):
+                neighbor_tree = forest_grid[row + neighbor_row][column + neighbor_column]
+                if tree_taller(current_tree, neighbor_tree) and neighbor_tree.visible is True:
+                    current_tree.visible = True
+                    visible_trees += 1
+                    if valid_index(row + neighbor_row * - 1, column + neighbor_column * - 1):
+                        is_Tree_Visible_diagonally(row + neighbor_row * - 1, column + neighbor_column * - 1)
+                    continue
+    return
+
+
+"""
+    This solution includes looking diagonally, which is an extension of the original problem.
+"""
+
 if __name__ == "__main__":
+    for row in forest_grid:
+        print(row)
     find_visible_trees()
     print("The total number of visible trees is : " + str(visible_trees))
     for row in forest_grid:
