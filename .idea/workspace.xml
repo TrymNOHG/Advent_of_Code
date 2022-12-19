@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="feat: add advent day 9">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_7_22,_8_16_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_7_22__8_16_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="feat: complete part 1 of advent day 8&#10;&#10;Add extended solution to viewing trees diagonally.">
+      <change afterPath="$PROJECT_DIR$/8 December/Assignment Description.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/8 December/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/8 December/main.py" afterDir="false" />
     </list>
@@ -215,7 +214,7 @@
       <workItem from="1670440291169" duration="5991000" />
       <workItem from="1670522441555" duration="2298000" />
       <workItem from="1670765184596" duration="748000" />
-      <workItem from="1671399707555" duration="5991000" />
+      <workItem from="1671399707555" duration="11060000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add logic for first exercise">
       <created>1669890417835</created>
@@ -315,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670582542259</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat: complete part 1 of advent day 8&#10;&#10;Add extended solution to viewing trees diagonally.">
+      <created>1671409791043</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671409791043</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,12 +352,13 @@
     <MESSAGE value="feat: complete advent day 7&#10;&#10;&#10;Refactor code to improve readability." />
     <MESSAGE value="feat: start advent day 8" />
     <MESSAGE value="feat: add advent day 9" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add advent day 9" />
+    <MESSAGE value="feat: complete part 1 of advent day 8&#10;&#10;Add extended solution to viewing trees diagonally." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: complete part 1 of advent day 8&#10;&#10;Add extended solution to viewing trees diagonally." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__4_.coverage" NAME="main (4) Coverage Results" MODIFIED="1670186828486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/4 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__5_.coverage" NAME="main (5) Coverage Results" MODIFIED="1670359376526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/5 December" />
-    <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1671408730617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/8 December" />
+    <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1671460783146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/8 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__6_.coverage" NAME="main (6) Coverage Results" MODIFIED="1670362361855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/6 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1670083594142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/3 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1670440206576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/7 December" />

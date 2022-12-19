@@ -4,15 +4,16 @@ global visible_trees
 
 
 class Tree:
-    def __init__(self, height=0, visible=False):
+    def __init__(self, height=0, visible=False, scenic_score=0):
         self.height = height
         self.visible = visible
+        self.scenic_score = scenic_score
 
     def __repr__(self):
-        return "(" + str(self.height) + ", " + str(self.visible) + ")"
+        return "(" + str(self.height) + ", " + str(self.visible) + ", " + str(self.scenic_score) + ")"
 
 
-forest_grid = [[Tree(int(number)) for number in line.strip("\n")] for line in open("input.txt").readlines()]
+forest_grid = [[Tree(int(number)) for number in line.strip("\n")] for line in open("test.txt").readlines()]
 
 for column in range(len(forest_grid[0])):
     forest_grid[0][column].visible = True
@@ -28,7 +29,6 @@ visible_trees = int((len(forest_grid) + len(forest_grid[0]) - 2) << 1)
 def find_visible_trees():
     for row in range(1, len(forest_grid[0]) - 1):
         for column in range(1, len(forest_grid[0]) - 1):
-            print(forest_grid[row][column])
             is_Tree_Visible(row, column)
 
 
@@ -45,66 +45,84 @@ def valid_index(row, column):
 
 
 def tree_taller(treeA, treeB):
-    return treeA.height > treeB.height
+    return treeA.height >= treeB.height
 
 
 def check_vertical_treeline(row, column):
     current_tree = forest_grid[row][column]
-    max_height = 0
-    for i in range(row):
-        if forest_grid[i][column].height > forest_grid[max_height][column].height:
-            max_height = i
+    top_view_score = 0
+    print(current_tree)
+    for i in range(1, row + 1):
+        print(forest_grid[row - i][column])
+        if tree_taller(forest_grid[row - i][column], current_tree):
+            top_view_score = i
+            break
 
-    if tree_taller(current_tree, forest_grid[max_height][column]):
+    if top_view_score == 0:
         current_tree.visible = True
-        return
+        top_view_score = row
+    print(current_tree)
 
-    max_height = row + 1
+    bottom_view_score = 0
+    for i in range(1, len(forest_grid) - row):
+        if tree_taller(forest_grid[row + i][column], current_tree):
+            bottom_view_score = i
+            break
 
-    for i in range(row + 1, len(forest_grid)):
-        if forest_grid[i][column].height > forest_grid[max_height][column].height:
-            max_height = i
-
-    if tree_taller(current_tree, forest_grid[max_height][column]):
+    if bottom_view_score == 0:
         current_tree.visible = True
-        return
+        bottom_view_score = len(forest_grid) - row - 1
 
-    return
+    return top_view_score, bottom_view_score
 
 
 def check_horizontal_treeline(row, column):
     current_tree = forest_grid[row][column]
-    max_height = 0
-    for i in range(column):
-        if forest_grid[row][i].height > forest_grid[row][max_height].height:
-            max_height = i
+    left_view_score = 0
+    for i in range(1, column + 1):
+        if tree_taller(forest_grid[row][column - i], current_tree):
+            left_view_score = i
+            break
 
-    if tree_taller(current_tree, forest_grid[row][max_height]):
+    if left_view_score == 0:
         current_tree.visible = True
-        return
+        left_view_score = column
 
-    max_height = column + 1
-    for i in range(column + 1, len(forest_grid[0])):
-        if forest_grid[row][i].height > forest_grid[row][max_height].height:
-            max_height = i
+    right_view_score = 0
+    for i in range(1, len(forest_grid[0]) - column):
+        if tree_taller(forest_grid[row][column + i], current_tree):
+            right_view_score = i
+            break
 
-    if tree_taller(current_tree, forest_grid[row][max_height]):
+    if right_view_score == 0:
         current_tree.visible = True
-        return
+        right_view_score = len(forest_grid[0]) - column - 1
 
-    return
+    return left_view_score, right_view_score
 
 
 def is_Tree_Visible(row, column):
     global visible_trees
 
-    check_vertical_treeline(row, column)
-    check_horizontal_treeline(row, column)
+    top_score, bottom_score = check_vertical_treeline(row, column)
+    left_score, right_score = check_horizontal_treeline(row, column)
+
+    forest_grid[row][column].scenic_score = top_score * bottom_score * left_score * right_score
 
     if forest_grid[row][column].visible:
         visible_trees += 1
 
     return
+
+
+def find_max_scenic_score():
+    max_score = 0
+    for row in forest_grid:
+        for tree in row:
+            if tree.scenic_score > max_score:
+                max_score = tree.scenic_score
+
+    return max_score
 
 
 def is_Tree_Visible_diagonally(row, column):
@@ -116,7 +134,7 @@ def is_Tree_Visible_diagonally(row, column):
         for neighbor_column in range(-1, 2):
             if valid_index(row + neighbor_row, column + neighbor_column):
                 neighbor_tree = forest_grid[row + neighbor_row][column + neighbor_column]
-                if tree_taller(current_tree, neighbor_tree) and neighbor_tree.visible is True:
+                if current_tree.height > neighbor_tree.height and neighbor_tree.visible is True:
                     current_tree.visible = True
                     visible_trees += 1
                     if valid_index(row + neighbor_row * - 1, column + neighbor_column * - 1):
@@ -130,9 +148,8 @@ def is_Tree_Visible_diagonally(row, column):
 """
 
 if __name__ == "__main__":
-    for row in forest_grid:
-        print(row)
     find_visible_trees()
     print("The total number of visible trees is : " + str(visible_trees))
-    for row in forest_grid:
-        print(row)
+    print("The max scenic score is: " + str(find_max_scenic_score()))
+    for tree in forest_grid:
+        print(tree)
