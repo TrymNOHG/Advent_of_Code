@@ -1,6 +1,9 @@
 # Split each line by comma to get interval of one elf, split interval by - to get the min and max bounds
 
 def is_subset():
+    """
+        This method is basically a comparator of the different intervals.
+    """
     id_pairs = id_pair.split(",")
 
     first_id_interval = id_pairs[0].split("-")
@@ -24,11 +27,6 @@ def is_subset():
         return 0
 
     return 1
-
-
-"""
-    This method is basically a comparator of the different intervals. 
-"""
 
 
 def is_overlap():

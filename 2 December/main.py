@@ -1,26 +1,24 @@
 class ActionNode:
+    """
+        This is a node class, representing the different actions you can do in rock paper scissors.
+    """
+
     def __init__(self, action, additional_points, edge=None):
         self.action = action
         self.additional_points = additional_points
         self.edge = edge
 
 
-"""
-    This is a node class, representing the different actions you can do in rock paper scissors.
-"""
-
-
 class MoveEdge:
+    """
+        This class represents the different moves that can occur between action nodes.
+        It can be thought of as a weighted edge in a graph.
+    """
+
     def __init__(self, score, to_node, next=None):
         self.score = score
         self.next = next
         self.to_node = to_node
-
-
-"""
-    This class represents the different moves that can occur between action nodes.
-    It can be thought of as a weighted edge in a graph.
-"""
 
 
 def create_game_graph():
@@ -55,6 +53,9 @@ moves = create_map()
 
 
 def determine_winner():
+    """
+        This method plays out a regular game of rock paper scissors and returns the value of whether you won or not.
+    """
     opponent_move, my_move = line.strip("\n").split(" ")
     opponent_move = moves.get(opponent_move)
     my_move = moves.get(my_move)
@@ -69,14 +70,13 @@ def determine_winner():
             action_edge = action_edge.next
 
 
-"""
-    This method plays out a regular game of rock paper scissors and returns the value of whether you won or not.
-"""
-
 rigged_map = {"X": 6, "Y": 3, "Z": 0}
 
 
 def determine_score():
+    """
+        Part 2 of calendar.
+    """
     opponent_move, my_move = line.strip("\n").split(" ")
     opponent_move = moves.get(opponent_move)
     result_score = rigged_map.get(my_move)
@@ -86,14 +86,10 @@ def determine_score():
     action_edge = action_node.edge
     while action_edge is not None:
         if action_edge.score == result_score:
-            return action_edge.to_node.additional_points + (6-result_score)
+            return action_edge.to_node.additional_points + (6 - result_score)
         else:
             action_edge = action_edge.next
 
-
-"""
-    Part 2 of calender.
-"""
 
 with open("input.txt") as move_list:
     my_total_score = 0

@@ -6,6 +6,9 @@ class File:
 
 
 class Directory:
+    """
+        The size of a directory is the size of all the files inside it.
+    """
     def __init__(self, path, size=0, directories=None, files=None, parent=None):
         if directories is None:
             directories = {}
@@ -41,12 +44,11 @@ class Directory:
             print(file)
 
 
-"""
-    The size of a directory is the size of all the files inside it.
-"""
-
-
 class FileSystem:
+    """
+       In order to only allow people to navigate downwards the tree, and not jump to random places, the
+       find_directory method above should be implemented.
+    """
     def __init__(self, num_nodes=0, root=Directory("/"), list_of_directories=None):
         if list_of_directories is None:
             list_of_directories = {}
@@ -82,11 +84,6 @@ class FileSystem:
     #             print("hi")
     #             current_directory = self.find_directory(directory_name, direct)
     #     return current_directory
-
-    """
-        In order to only allow people to navigate downwards the tree, and not jump to random places, the
-        find_directory method above should be implemented.
-    """
 
     def find_directory(self, directory_name):
         return self.list_of_directories.get(directory_name)

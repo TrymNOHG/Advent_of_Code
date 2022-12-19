@@ -126,6 +126,9 @@ def find_max_scenic_score():
 
 
 def is_Tree_Visible_diagonally(row, column):
+    """
+        This solution includes looking diagonally, which is an extension of the original problem.
+    """
     current_tree = forest_grid[row][column]
     global visible_trees
     if current_tree.visible is True:
@@ -142,10 +145,6 @@ def is_Tree_Visible_diagonally(row, column):
                     continue
     return
 
-
-"""
-    This solution includes looking diagonally, which is an extension of the original problem.
-"""
 
 if __name__ == "__main__":
     find_visible_trees()
