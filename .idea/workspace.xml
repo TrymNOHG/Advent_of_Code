@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="docs: add advent 9 description">
-      <change afterPath="$PROJECT_DIR$/9 December/test2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="feat: complete advent day 9">
       <change beforePath="$PROJECT_DIR$/9 December/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/9 December/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,22 +34,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/Trym/Desktop/Programming/2022 Advent of Code/10 December&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/Trym/Desktop/Programming/2022 Advent of Code/10 December",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/10 December" />
@@ -244,7 +241,7 @@
       <workItem from="1670522441555" duration="2298000" />
       <workItem from="1670765184596" duration="748000" />
       <workItem from="1671399707555" duration="25693000" />
-      <workItem from="1671791941951" duration="7486000" />
+      <workItem from="1671791941951" duration="8228000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add logic for first exercise">
       <created>1669890417835</created>
@@ -372,7 +369,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671575831964</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat: complete advent day 9">
+      <created>1671830386886</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1671830386886</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: complete advent day 9">
+      <created>1671830400359</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1671830400359</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,14 +418,15 @@
     <MESSAGE value="feat: complete advent day 8" />
     <MESSAGE value="docs: fix the documenting of methods and classes" />
     <MESSAGE value="docs: add advent 9 description" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: add advent 9 description" />
+    <MESSAGE value="feat: complete advent day 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: complete advent day 9" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__4_.coverage" NAME="main (4) Coverage Results" MODIFIED="1670186828486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/4 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__5_.coverage" NAME="main (5) Coverage Results" MODIFIED="1670359376526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/5 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1671474543562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/8 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__6_.coverage" NAME="main (6) Coverage Results" MODIFIED="1670362361855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/6 December" />
-    <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1671830198262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/9 December" />
+    <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1671830787481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/9 December" />
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1670440206576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/7 December" />
   </component>
 </project>

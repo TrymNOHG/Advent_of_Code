@@ -1,5 +1,3 @@
-# It could be smart to use a set in order to hold all the visited nodes. I could also have a visited boolean.
-# I could use linked lists in order to represent the network of nodes.
 class Node:
     """
         This node represents the different locations on the network grid.
@@ -23,25 +21,8 @@ class Node:
         return str(self.x_coord) + ", " + str(self.y_coord)
 
 
-head_node = Node()
-head_prev_loc = Node()
-tail_node = Node()
-
 instructions = [(move.strip("\n").split(" ")[0], move.strip("\n").split(" ")[1])
                 for move in open("input.txt").readlines()]
-
-
-def need_move(head, tail, prev_loc):
-    """
-    Using some simple algebra, this method checks if the head node is within a distance of sqrt(2)
-    from the tail node.
-    If so, then the tail node will not move. If not, the tail node needs to move to the head node's previous position.
-    """
-
-    dist = ((head.x_coord - tail.x_coord) ** 2
-            + (head.y_coord - tail.y_coord) ** 2) ** 0.5
-    if not (-(2 ** 0.5) <= dist <= (2 ** 0.5)):
-        tail.x_coord, tail.y_coord = prev_loc.x_coord, prev_loc.y_coord
 
 
 def sign(num):
@@ -49,11 +30,16 @@ def sign(num):
 
 
 def make_move(head, tail):
+    """
+        Using some simple algebra, this method checks if the head node is within a distance of sqrt(2)
+        from the tail node.
+        If so, then the tail node will not move. If not, the tail node needs to move to the head node's previous position.
+    """
     moves = {(tail.x_coord, tail.y_coord)}
     x_diff = head.x_coord - tail.x_coord
     y_diff = head.y_coord - tail.y_coord
 
-    while not (-(2 ** 0.5) <= (x_diff ** 2 + y_diff ** 2) ** 0.5 <= (2 ** 0.5)):
+    if not (-(2 ** 0.5) <= (x_diff ** 2 + y_diff ** 2) ** 0.5 <= (2 ** 0.5)):
         if x_diff != 0:
             tail.x_coord += sign(x_diff)
             x_diff = head.x_coord - tail.x_coord
@@ -65,33 +51,47 @@ def make_move(head, tail):
     return moves
 
 
-Part 1
-tail_moves = {(0, 0)}  # A set of the coordinate positions of the tail node.
-for move in instructions:
-    for i in range(int(move[1])):
-        head_prev_loc.x_coord, head_prev_loc.y_coord = head_node.x_coord, head_node.y_coord
-        head_node.update_coord(move[0])
-        need_move(head_node, tail_node, head_prev_loc)
-        tail_moves.add((tail_node.x_coord, tail_node.y_coord))
-        # print("Head " + str(head_node))
-        # print("Tail " + str(tail_node))
+def solve_puzzle(num_links):
+    nodes = [Node() for _ in range(num_links + 1)]
+    tail_moves = {(0, 0)}  # A set of the coordinate positions of the tail node.
+    for move in instructions:
+        for i in range(int(move[1])):
+            nodes[0].update_coord(move[0])  # Head node
+            for j in range(len(nodes) - 1):
+                moves_made = make_move(nodes[j], nodes[j + 1])
+                if j == len(nodes) - 2:
+                    tail_moves |= moves_made
+    return len(tail_moves)
 
-print(len(tail_moves))
-
-# Part 2
-nodes = [Node() for i in range(10)]
-tail_moves = {(0, 0)}  # A set of the coordinate positions of the tail node.
-for move in instructions:
-    nodes[0].fully_update_coord(move)  # Head node
-    print("Head " + str(nodes[0]))
-    for j in range(len(nodes) - 1):
-        moves_made = make_move(nodes[j], nodes[j + 1])
-        print("Tail " + str(j + 1) + ". " + str(nodes[j + 1]))
-        if j == len(nodes) - 2:
-            tail_moves |= moves_made
-
-print(sorted(tail_moves))
-print(len(tail_moves))
 
 if __name__ == '__main__':
-    print()
+    print(solve_puzzle(1))
+    print(solve_puzzle(9))
+
+# Part 1
+# tail_moves = {(0, 0)}  # A set of the coordinate positions of the tail node.
+# for move in instructions:
+#     for i in range(int(move[1])):
+#         head_prev_loc.x_coord, head_prev_loc.y_coord = head_node.x_coord, head_node.y_coord
+#         head_node.update_coord(move[0])
+#         need_move(head_node, tail_node, head_prev_loc)
+#         tail_moves.add((tail_node.x_coord, tail_node.y_coord))
+#         # print("Head " + str(head_node))
+#         # print("Tail " + str(tail_node))
+#
+# print(len(tail_moves))
+
+# Part 2
+# nodes = [Node() for i in range(10)]
+# tail_moves = {(0, 0)}  # A set of the coordinate positions of the tail node.
+# for move in instructions:
+#     nodes[0].fully_update_coord(move)  # Head node
+#     print("Head " + str(nodes[0]))
+#     for j in range(len(nodes) - 1):
+#         moves_made = make_move(nodes[j], nodes[j + 1])
+#         print("Tail " + str(j + 1) + ". " + str(nodes[j + 1]))
+#         if j == len(nodes) - 2:
+#             tail_moves |= moves_made
+#
+# print(sorted(tail_moves))
+# print(len(tail_moves))
