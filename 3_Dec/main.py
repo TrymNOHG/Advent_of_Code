@@ -190,7 +190,6 @@ def part2(file):
                 if len(num_around) == 2:
                     # print(num_around)
                     gear_combos.append(num_around)
-#80703636
     set_of_combo = [list(gear_combos[0])]
     for i, combo in enumerate(gear_combos):
         combo_list = list(combo)
@@ -204,7 +203,7 @@ def part2(file):
             set_of_combo.append(combo_list)
 
     print(set_of_combo)
-    for l in set_of_combo:
+    for l in gear_combos:
         mult = 1
         for num in l:
             mult *= num
@@ -213,7 +212,116 @@ def part2(file):
     print(sum)
     # print(grid)
 
+def attempt_two(file):
+    ints = "0 1 2 3 4 5 6 7 8 9"
+    gear_symb = "*"
+    grid = []
+    for index, line in enumerate(file):
+        line = line.strip("\n")
+        row = ["."]
+        for charac in line:
+            if charac in ints:
+                row.append(int(charac))
+            else:
+                row.append(charac)
+        row.append(".")
+        grid.append(row)
+
+    row = ["." for _ in range(len(grid) + 1)]
+    grid.append(row)
+    grid.insert(0, row)
+
+    for row in grid:
+        print(row)
+
+    sum = 0
+    gear_combos = []
+    for i, row in enumerate(grid):
+        for j, entry in enumerate(row):
+            num_around = set([])
+            if entry == gear_symb:
+                for k in range(3):
+                    # print(f"{i + 1}, {j + k - 1}")
+                    if type(grid[i - 1][j + k - 1]) is int:
+                        temp_i, temp_k = i - 1, j + k - 1
+                        while type(grid[temp_i][temp_k]) is int:
+                            temp_k -= 1
+
+                        temp_k += 1
+                        number = 0
+                        while type(grid[temp_i][temp_k]) is int:
+                            number *= 10
+                            number += grid[temp_i][temp_k]
+                            temp_k += 1
+
+                        num_around.add(number)
+                    if type(grid[i + 1][j + k - 1]) is int:
+                        temp_i, temp_k = i + 1, j + k - 1
+                        while type(grid[temp_i][temp_k]) is int:
+                            temp_k -= 1
+
+                        temp_k += 1
+                        number = 0
+                        while type(grid[temp_i][temp_k]) is int:
+                            number *= 10
+                            number += grid[temp_i][temp_k]
+                            temp_k += 1
+
+                        num_around.add(number)
+
+                if type(grid[i][j - 1]) is int:
+                    temp_i, temp_k = i, j - 1
+                    while type(grid[temp_i][temp_k]) is int:
+                        temp_k -= 1
+
+                    temp_k += 1
+                    number = 0
+                    while type(grid[temp_i][temp_k]) is int:
+                        number *= 10
+                        number += grid[temp_i][temp_k]
+                        temp_k += 1
+
+                    num_around.add(number)
+                if type(grid[i][j + 1]) is int:
+                    temp_i, temp_k = i, j + 1
+                    while type(grid[temp_i][temp_k]) is int:
+                        temp_k -= 1
+
+                    temp_k += 1
+                    number = 0
+                    while type(grid[temp_i][temp_k]) is int:
+                        number *= 10
+                        number += grid[temp_i][temp_k]
+                        temp_k += 1
+
+                    num_around.add(number)
+
+                if len(num_around) == 2:
+                    # print(num_around)
+                    gear_combos.append(num_around)
+
+    set_of_combo = [list(gear_combos[0])]
+    for i, combo in enumerate(gear_combos):
+        combo_list = list(combo)
+        in_set = False
+        for other_combo in set_of_combo:
+            if (combo_list[0] == other_combo[0] and combo_list[1] == other_combo[1]) or \
+                    (combo_list[1] == other_combo[0] and combo_list[1] == other_combo[0]):
+                in_set = True
+                break
+        if not in_set:
+            set_of_combo.append(combo_list)
+
+    print(set_of_combo)
+    for l in gear_combos:
+        mult = 1
+        for num in l:
+            mult *= num
+        sum += mult
+
+    print(sum)
 
 with open("input.txt", "r") as file:
     # part1(file)
-    part2(file)
+    # part2(file)
+    attempt_two(file)
