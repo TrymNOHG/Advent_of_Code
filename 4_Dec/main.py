@@ -28,9 +28,11 @@ def part2(file):
         winning_num = numbers_sets[1].split(" ")
         num_set = set([])
         for num in your_numbers:
-            for other_num in winning_num:
-                if num == other_num and num != "":
-                    num_set.add(num)
+            if num != "":
+                num_set.add(num)
+        for other_num in winning_num:
+            if other_num != "":
+                num_set.add(other_num)
 
         if len(num_set) > 0:
             sum += 2 ** (len(num_set) - 1)
@@ -46,5 +48,5 @@ def part2(file):
 
 
 with open("input.txt", "r") as file:
-    # part1(file)
-    part2(file)
+    part1(file)
+    # part2(file)
