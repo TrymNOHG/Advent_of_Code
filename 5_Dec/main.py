@@ -1,3 +1,6 @@
+# Would be cool to look into interval tree implementation to solve this
+import time
+
 def part1(file):
     seeds = file.readline().strip("\n").split(":")[-1].split(" ")[1:]
 
@@ -117,5 +120,7 @@ def part2(file):
 
 with open("input.txt", "r") as file:
     # part1(file)
+    start_time = time.time_ns()
     part2(file)
-    # part3(file)
+    stop_time = time.time_ns()
+    print((stop_time-start_time)/10**6)
