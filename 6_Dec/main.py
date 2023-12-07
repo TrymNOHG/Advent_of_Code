@@ -1,3 +1,6 @@
+import time
+
+
 def part1(file):
     text = file.readlines()
     time_field = text[0].strip("\n").split(":")
@@ -34,7 +37,6 @@ def part1(file):
     print(mult)
 
 
-
 def part2(file):
     text = file.readlines()
     time_field = text[0].strip("\n").split(":")
@@ -48,12 +50,17 @@ def part2(file):
     while time_spent <= duration:
         distance = (duration - time_spent) * time_spent
         if distance > best_dist:
+            print(time_spent / duration)
             num_valid_way = (duration - time_spent) - time_spent + 1
             break
         time_spent += 1
 
     print(num_valid_way)
 
+
 with open("input.txt", "r") as file:
     # part1(file)
+    time_start = time.time()
     part2(file)
+    time_end = time.time()
+    print(time_end - time_start)
