@@ -1,3 +1,5 @@
+import math
+
 class Node:
     def __init__(self, value, left, right):
         self.value = value
@@ -7,6 +9,8 @@ class Node:
     def __str__(self):
         return f"{self.value} : {self.left}, {self.right}"
 
+
+mapping = {'L': lambda specific_node: specific_node.left, 'R': lambda specific_node: specific_node.right}
 
 def part1(file):
     instructions = file.readline().strip("\n")
@@ -56,36 +60,26 @@ def part2(file):
         if node.value[-1] == node_start_val:
             start_nodes.append(node)
 
-    # for node in start_nodes:
-    #     print(node)
-    instruct_index = 0
     number_of_instructions = len(instructions)
-
     all_reached_end = False
+    values = []
     while not all_reached_end:
+        moves = []
+        for i in range(len(start_nodes)):
+            instruct_index = 0
+            while start_nodes[i].value[-1] != 'Z':
+                move = instructions[instruct_index % number_of_instructions]
+                start_nodes[i] = nodes.get(mapping[move](start_nodes[i]))
+                moves.append(move)
+                instruct_index += 1
+            values.append(instruct_index)
         # Check if all reached
         all_reached_end = True
-        if instructions[instruct_index % number_of_instructions] == 'L':
-            for index, node in enumerate(start_nodes):
-                start_nodes[index] = nodes[node.left]
-        else:
-            for index, node in enumerate(start_nodes):
-                start_nodes[index] = nodes[node.right]
 
-        for index, node in enumerate(start_nodes):
-            for other_index, other_node in enumerate(start_nodes):
-                if index != other_index:
-                    if node.value == other_node.value:
-                        start_nodes.pop(other_index)
-
-        instruct_index += 1
-        for index, node in enumerate(start_nodes):
-            if node.value[-1] != 'Z':
-                all_reached_end = False
-                break
-
-    print(instruct_index)
-
+    lcm = 1
+    for i in values:
+        lcm = lcm * i // math.gcd(lcm, i)
+    print(lcm)
     # for node in nodes.values():
     #     print(node)
 
