@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="feat: complete advent day 11">
-      <change afterPath="$PROJECT_DIR$/12 December/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/.idea/2022 Advent of Code.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12 December/test.txt" afterDir="false" />
+    <list default="true" id="3434a7d3-563c-4a3c-8d6d-b14451fe5617" name="Changes" comment="feat: implement Dijkstra's algorithm to search for end node">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12 December/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/12 December/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +119,9 @@
       <module name="2022 Advent of Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/12 December" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -195,7 +190,12 @@
       <workItem from="1672325301412" duration="9424000" />
       <workItem from="1672445732646" duration="12624000" />
       <workItem from="1672664782605" duration="9357000" />
-      <workItem from="1672761171451" duration="6997000" />
+      <workItem from="1672761171451" duration="8161000" />
+      <workItem from="1672856951479" duration="18000" />
+      <workItem from="1672856980183" duration="2476000" />
+      <workItem from="1673005955321" duration="35000" />
+      <workItem from="1701376943254" duration="33000" />
+      <workItem from="1701377386165" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add logic for first exercise">
       <created>1669890417835</created>
@@ -379,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672453929424</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: implement Dijkstra's algorithm to search for end node">
+      <created>1672784524311</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1672784524311</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +427,8 @@
     <MESSAGE value="feat: complete day 10" />
     <MESSAGE value="docs: add Assignment Description for day 10" />
     <MESSAGE value="feat: complete advent day 11" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: complete advent day 11" />
+    <MESSAGE value="feat: implement Dijkstra's algorithm to search for end node" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implement Dijkstra's algorithm to search for end node" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/2022_Advent_of_Code$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1672452758268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/11 December" />
