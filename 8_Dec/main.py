@@ -1,5 +1,6 @@
 import math
 
+
 class Node:
     def __init__(self, value, left, right):
         self.value = value
@@ -11,6 +12,7 @@ class Node:
 
 
 mapping = {'L': lambda specific_node: specific_node.left, 'R': lambda specific_node: specific_node.right}
+
 
 def part1(file):
     instructions = file.readline().strip("\n")
@@ -80,8 +82,6 @@ def part2(file):
     for i in values:
         lcm = lcm * i // math.gcd(lcm, i)
     print(lcm)
-    # for node in nodes.values():
-    #     print(node)
 
 
 with open("input.txt", "r") as file:
