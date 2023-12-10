@@ -100,6 +100,7 @@ def part2(file):
                 starting_pos = (j, i)
 
     indexed_grid_map = [['.' for _ in row] for row in grid]
+    direction_map = {0: '>', 90: '^', 180: '<', 270: 'v'}
 
     valid_start_dir = []
 
@@ -125,7 +126,8 @@ def part2(file):
     print(rotation)
     i = 0
 
-    indexed_grid_map[next_move[1]][next_move[0]] = [rotation]
+    # indexed_grid_map[next_move[1]][next_move[0]] = direction_map.get(rotation)
+    indexed_grid_map[next_move[1]][next_move[0]] = rotation
 
 
     # Use just one angle again... Fix.
@@ -134,12 +136,17 @@ def part2(file):
         _, start_pipe_coords, new_rotation = is_move_valid(current, next_move, next_pipe)
         current = next_move
         next_move = start_pipe_coords
+        print(next_pipe)
+        print(new_rotation)
+        print(current)
         next_pipe = grid[next_move[1]][next_move[0]]
-        old_rotation = rotation
         rotation = (rotation + new_rotation) % 360
-        indexed_grid_map[next_move[1]][next_move[0]] = [old_rotation, rotation]
+        print(rotation)
+        # indexed_grid_map[current[1]][current[0]] = direction_map.get(rotation)
+        indexed_grid_map[current[1]][current[0]] = rotation
         if next_pipe == 'S':
-            indexed_grid_map[next_move[1]][next_move[0]] = [old_rotation, valid_start_dir[1]]
+            # indexed_grid_map[next_move[1]][next_move[0]] = direction_map.get(valid_start_dir[1])
+            indexed_grid_map[next_move[1]][next_move[0]] = valid_start_dir[1]
             break
 
 
@@ -167,12 +174,12 @@ def part2(file):
     # Do I need to account for corner changes?
 
     for i, row in enumerate(indexed_grid_map):
-        previous_num = [-1]
+        previous_num = -1
         for j, entry in enumerate(row):
             if entry == '.':
                 is_in = False
                 # Check left first
-                if j > 0 and 0 in previous_num:
+                if j > 0 and previous_num == 0:
                     is_in = True
 
                 # if previous_num == [-1]:
@@ -185,31 +192,29 @@ def part2(file):
                         index += 1
                         right_pip = row[j + 1 + index]
 
-                    if type(right_pip) == list and 180 in right_pip: #contains 180
+                    if type(right_pip) == list and right_pip == 180:
                         is_in = True
 
-                # if not is_in and j < len(row) - 1:
-                #
-                #
-                # # Find pipe above
-                # if not is_in and i > 0:
-                #     above_pipe = indexed_grid_map[i - 1][j]
-                #     index = 0
-                #     while (i - 1 - index) > 0 and above_pipe == '':
-                #         index += 1
-                #         above_pipe = indexed_grid_map[i - 1 - index][j]
-                #     if above_pipe == 270:
-                #         is_in = True
-                #
-                # # Find below pipe
-                # if not is_in and i < len(indexed_grid_map) - 1:
-                #     below_pipe = indexed_grid_map[i + 1][j]
-                #     index = 0
-                #     while (i + 1 + index) < len(indexed_grid_map) - 1 and below_pipe == '':
-                #         index += 1
-                #         below_pipe = indexed_grid_map[i + 1 + index][j]
-                #     if below_pipe == 90:
-                #         is_in = True
+                # Check above
+                if not is_in and i > 0:
+                    above_pipe = indexed_grid_map[i - 1][j]
+                    index = 0
+                    while (i - 1 - index) > 0 and above_pipe == '':
+                        index += 1
+                        above_pipe = indexed_grid_map[i - 1 - index][j]
+                    if above_pipe == 270:
+                        is_in = True
+
+
+                # Check below pipe
+                if not is_in and i < len(indexed_grid_map) - 1:
+                    below_pipe = indexed_grid_map[i + 1][j]
+                    index = 0
+                    while (i + 1 + index) < len(indexed_grid_map) - 1 and below_pipe == '':
+                        index += 1
+                        below_pipe = indexed_grid_map[i + 1 + index][j]
+                    if below_pipe == 90:
+                        is_in = True
                 # else:
                 #     continue
                 if is_in:
@@ -219,6 +224,7 @@ def part2(file):
                 previous_num = entry
 
     for row in indexed_grid_map:
+        # print(''.join(row))
         print(row)
 
     print(area)
